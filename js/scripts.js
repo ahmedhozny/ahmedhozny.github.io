@@ -67,12 +67,15 @@ async function renderContent(data) {
 
     }
 
-    // Update location
+    // Update location and phone numbers in order
     const locationContainer = document.getElementById('location-container');
-    data.addresses.forEach(address => {
+    const phoneContainer = document.getElementById('phones');
+
+    data.addresses.forEach((address, index) => {
         let icon = '';
         let locationText = '';
 
+        // Determine the icon based on living or home status
         if (address.living) {
             icon = '<span class="me-2"><i class="fa-solid fa-location-dot"></i></span>';
             locationText = `${address.city} . ${address.country}`;
@@ -81,9 +84,25 @@ async function renderContent(data) {
             locationText = `${address.city} . ${address.country}`;
         }
 
+        // Add the location information to the container
         if (icon && locationText) {
             locationContainer.innerHTML += icon + locationText + ' ';
         }
+
+        // Retrieve and display phone numbers based on dialing code from the address
+        const dialingCode = address['dialing-code'];
+        const phoneNumbers = data.contacts['phone-numbers'][dialingCode] || [];
+        phoneNumbers.forEach((phone, i) => {
+            if (phone.display) {
+                if (index > 0 || i > 0) {
+                    phoneContainer.appendChild(document.createTextNode(" - "));
+                }
+                const phoneLink = document.createElement('a');
+                phoneLink.href = `tel:${phone.link}`;
+                phoneLink.textContent = phone.text;
+                phoneContainer.appendChild(phoneLink);
+            }
+        });
     });
 
     // Update emails
@@ -95,24 +114,6 @@ async function renderContent(data) {
             emailLink.textContent = emailObj.email;
             emailsContainer.appendChild(emailLink);
         }
-    });
-
-    // Update phone numbers
-    const phoneContainer = document.getElementById('phones');
-    let flag = false
-    Object.keys(data.contacts['phone-numbers']).forEach(dialingCode => {
-        data.contacts['phone-numbers'][dialingCode].forEach(phone => {
-            if (phone.display) {
-                if (flag) {
-                    phoneContainer.appendChild(document.createTextNode(" - "));
-                }
-                const phoneLink = document.createElement('a');
-                phoneLink.href = `tel:00${phone.link}`;
-                phoneLink.textContent = phone.text;
-                phoneContainer.appendChild(phoneLink);
-                flag = true
-            }
-        });
     });
 
     // Set bio from YAML

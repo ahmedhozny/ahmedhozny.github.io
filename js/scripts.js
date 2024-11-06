@@ -57,6 +57,16 @@ async function renderContent(data) {
         document.getElementById("last-name").textContent = data.name.substring(space_idx)
     }
 
+    if (data["resume-link"]) {
+        const resumeContainer = document.getElementById('resume-download');
+        const resumeLinkElement = document.createElement('a');
+        resumeLinkElement.href = data["resume-link"];
+        resumeLinkElement.target = '_blank';
+        resumeLinkElement.textContent = "View / Download Resume";
+        resumeContainer.appendChild(resumeLinkElement);
+
+    }
+
     // Update location
     const locationContainer = document.getElementById('location-container');
     data.addresses.forEach(address => {

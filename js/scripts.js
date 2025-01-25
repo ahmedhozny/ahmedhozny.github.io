@@ -13,7 +13,7 @@ window.addEventListener('beforeunload', function () {
 });
 
 
-window.addEventListener('DOMContentLoaded', event => {
+window.addEventListener('DOMContentLoaded', () => {
 
 
     // Activate Bootstrap scrollspy on the main nav element
@@ -141,6 +141,10 @@ async function renderContent(data) {
         renderEducation(data.education);
     }
 
+    if (data.experience) {
+        renderExperience(data.experience);
+    }
+
     // Render projects if they exist
     if (data.projects) {
         renderProjects(data.projects);
@@ -181,6 +185,33 @@ async function renderEducation(education) {
     });
 }
 
+async function renderExperience(experiences) {
+    const experienceList = document.getElementById('experience-list');
+    experiences.forEach(exp => {
+        // Create a div for each project entry
+        const projectElement = document.createElement('div');
+        projectElement.classList.add('d-flex', 'flex-column', 'flex-md-row', 'justify-content-between', 'mb-5');
+
+        let summaryHTML = '';
+        if (exp.summary) {
+            summaryHTML = exp.summary.map(line => `<p>${line}</p>`).join('');
+        }
+
+        // Build the project element with title, subtitle, summary, and links
+        projectElement.innerHTML = `
+            <div class="flex-grow-1">
+                <h3 class="mb-0">${exp.title}</h3>
+                <div class="subheading mb-3">${exp.company}</div>
+                ${summaryHTML}
+            </div>
+            <div class="flex-shrink-0"><span class="text-primary">${formatDate(exp['start-date'], true)} - ${formatDate(exp['end-date'] ?? "Present", false)}</span></div>
+        `;
+
+        // Append the project to the list
+        experienceList.appendChild(projectElement);
+    })
+}
+
 // Function to render the projects section
 async function renderProjects(projects) {
     const projectListElement = document.getElementById('project-list');
@@ -194,14 +225,24 @@ async function renderProjects(projects) {
             summaryHTML = project.summary.map(line => `<p>${line}</p>`).join('');
         }
 
+        // Safely check for links and build the links section
+        let linksHTML = '';
+        if (project.links) {
+            if (project.links.github) {
+                linksHTML += `<p>Project on <a href="${project.links.github}" target="_blank">GitHub</a></p>`;
+            }
+            if (project.links.vercel) {
+                linksHTML += `<p>Live at <a href="${project.links.vercel}" target="_blank">Vercel</a></p>`;
+            }
+        }
+
         // Build the project element with title, subtitle, summary, and links
         projectElement.innerHTML = `
             <div class="flex-grow-1">
                 <h3 class="mb-0">${project.title}</h3>
                 <div class="subheading mb-3">${project.subtitle}</div>
                 ${summaryHTML}
-                <p>Project on <a href="${project.links.github}" target="_blank">GitHub</a></p>
-                ${project.links.vercel ? `<p>Live at <a href="${project.links.vercel}" target="_blank">Vercel</a></p>` : ''}
+                ${linksHTML}
             </div>
             <div class="flex-shrink-0"><span class="text-primary">${formatDate(project['start-date'], true)} - ${formatDate(project['end-date'] ?? "Present", false)}</span></div>
         `;
@@ -210,6 +251,7 @@ async function renderProjects(projects) {
         projectListElement.appendChild(projectElement);
     });
 }
+
 
 // Function to render the skills section
 async function renderSkills(skills) {

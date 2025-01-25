@@ -8,5 +8,6 @@
     <orderEntry type="library" name="bootstrap" level="application" />
     <orderEntry type="library" name="js-yaml" level="application" />
     <orderEntry type="library" name="all" level="application" />
+    <orderEntry type="library" name="simple-icons" level="application" />
   </component>
 </module>

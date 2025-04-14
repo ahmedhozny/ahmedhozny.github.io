@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" 
   "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+  <!-- The profile that contains the email account payload -->
   <key>PayloadContent</key>
   <array>
     <dict>
+      <!-- Descriptive fields -->
       <key>EmailAccountDescription</key>
       <string>AhmedHosny Mail</string>
       <key>EmailAccountName</key>
@@ -14,9 +16,10 @@
       <string>EmailTypeIMAP</string>
       <key>EmailAddress</key>
       <string>example@ahmedhosny.me</string>
-
+      
+      <!-- Incoming (IMAP) configuration -->
       <key>IncomingMailServerAuthentication</key>
-      <true/>
+      <string>Password</string>
       <key>IncomingMailServerHostName</key>
       <string>ahmedhosny.me</string>
       <key>IncomingMailServerPortNumber</key>
@@ -27,9 +30,10 @@
       <string>example@ahmedhosny.me</string>
       <key>IncomingPassword</key>
       <string>test-password</string>
-
+      
+      <!-- Outgoing (SMTP) configuration -->
       <key>OutgoingMailServerAuthentication</key>
-      <true/>
+      <string>Password</string>
       <key>OutgoingMailServerHostName</key>
       <string>ahmedhosny.me</string>
       <key>OutgoingMailServerPortNumber</key>
@@ -40,23 +44,24 @@
       <string>example@ahmedhosny.me</string>
       <key>OutgoingPassword</key>
       <string>test-password</string>
-
-      <key>PayloadType</key>
-      <string>com.apple.mail.managed</string>
-      <key>PayloadVersion</key>
-      <integer>1</integer>
-      <key>PayloadIdentifier</key>
-      <string>com.ahmedhosny.emailprofile</string>
-      <key>PayloadUUID</key>
-      <string>ABCDEF12-3456-7890-ABCD-EF1234567890</string>
+      
+      <!-- Payload metadata for the email account -->
+      <key>PayloadDescription</key>
+      <string>Configures email account for AhmedHosny</string>
       <key>PayloadDisplayName</key>
       <string>AhmedHosny Mail Test</string>
-      <key>PayloadOrganization</key>
-      <string>AhmedHosny</string>
-      <key>PayloadDescription</key>
-      <string>Test email setup for ahmedhosny.me</string>
+      <key>PayloadIdentifier</key>
+      <string>com.ahmedhosny.emailprofile</string>
+      <key>PayloadType</key>
+      <string>com.apple.mail.managed</string>
+      <key>PayloadUUID</key>
+      <string>ABCDEF12-3456-7890-ABCD-EF1234567890</string>
+      <key>PayloadVersion</key>
+      <integer>1</integer>
     </dict>
   </array>
+  
+  <!-- Overall profile metadata -->
   <key>PayloadDisplayName</key>
   <string>AhmedHosny Mail Config</string>
   <key>PayloadIdentifier</key>

@@ -16,7 +16,7 @@
       <string>example@ahmedhosny.me</string>
 
       <key>IncomingMailServerAuthentication</key>
-      <string>Password</string>
+      <true/>
       <key>IncomingMailServerHostName</key>
       <string>ahmedhosny.me</string>
       <key>IncomingMailServerPortNumber</key>
@@ -29,7 +29,7 @@
       <string>test-password</string>
 
       <key>OutgoingMailServerAuthentication</key>
-      <string>Password</string>
+      <true/>
       <key>OutgoingMailServerHostName</key>
       <string>ahmedhosny.me</string>
       <key>OutgoingMailServerPortNumber</key>

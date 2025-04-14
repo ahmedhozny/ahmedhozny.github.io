@@ -14,6 +14,9 @@
       <string>EmailTypeIMAP</string>
       <key>EmailAddress</key>
       <string>example@ahmedhosny.me</string>
+
+      <key>IncomingMailServerAuthentication</key>
+      <string>Password</string>
       <key>IncomingMailServerHostName</key>
       <string>ahmedhosny.me</string>
       <key>IncomingMailServerPortNumber</key>
@@ -24,6 +27,9 @@
       <string>example@ahmedhosny.me</string>
       <key>IncomingPassword</key>
       <string>test-password</string>
+
+      <key>OutgoingMailServerAuthentication</key>
+      <string>Password</string>
       <key>OutgoingMailServerHostName</key>
       <string>ahmedhosny.me</string>
       <key>OutgoingMailServerPortNumber</key>
@@ -34,6 +40,7 @@
       <string>example@ahmedhosny.me</string>
       <key>OutgoingPassword</key>
       <string>test-password</string>
+
       <key>PayloadType</key>
       <string>com.apple.mail.managed</string>
       <key>PayloadVersion</key>

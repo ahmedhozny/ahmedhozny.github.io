@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>PayloadContent</key>
+  <array>
+    <dict>
+      <key>EmailAccountDescription</key>
+      <string>AhmedHosny Mail</string>
+      <key>EmailAccountName</key>
+      <string>Test User</string>
+      <key>EmailAccountType</key>
+      <string>EmailTypeIMAP</string>
+      <key>EmailAddress</key>
+      <string>example@ahmedhosny.me</string>
+      <key>IncomingMailServerHostName</key>
+      <string>ahmedhosny.me</string>
+      <key>IncomingMailServerPortNumber</key>
+      <integer>993</integer>
+      <key>IncomingMailServerUseSSL</key>
+      <true/>
+      <key>IncomingMailServerUsername</key>
+      <string>example@ahmedhosny.me</string>
+      <key>IncomingPassword</key>
+      <string>test-password</string>
+      <key>OutgoingMailServerHostName</key>
+      <string>ahmedhosny.me</string>
+      <key>OutgoingMailServerPortNumber</key>
+      <integer>465</integer>
+      <key>OutgoingMailServerUseSSL</key>
+      <true/>
+      <key>OutgoingMailServerUsername</key>
+      <string>example@ahmedhosny.me</string>
+      <key>OutgoingPassword</key>
+      <string>test-password</string>
+      <key>PayloadType</key>
+      <string>com.apple.mail.managed</string>
+      <key>PayloadVersion</key>
+      <integer>1</integer>
+      <key>PayloadIdentifier</key>
+      <string>com.ahmedhosny.emailprofile</string>
+      <key>PayloadUUID</key>
+      <string>ABCDEF12-3456-7890-ABCD-EF1234567890</string>
+      <key>PayloadDisplayName</key>
+      <string>AhmedHosny Mail Test</string>
+      <key>PayloadOrganization</key>
+      <string>AhmedHosny</string>
+      <key>PayloadDescription</key>
+      <string>Test email setup for ahmedhosny.me</string>
+    </dict>
+  </array>
+  <key>PayloadDisplayName</key>
+  <string>AhmedHosny Mail Config</string>
+  <key>PayloadIdentifier</key>
+  <string>com.ahmedhosny.mailprofile</string>
+  <key>PayloadRemovalDisallowed</key>
+  <false/>
+  <key>PayloadType</key>
+  <string>Configuration</string>
+  <key>PayloadUUID</key>
+  <string>ABCDEF12-3456-7890-ABCD-EF1234567899</string>
+  <key>PayloadVersion</key>
+  <integer>1</integer>
+</dict>
+</plist>
